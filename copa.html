@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>COPA — Government ITI Karnailganj, Gonda</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+
+
+    :root {
+
+      --blue:       #1E88C8;
+
+      --blue-dark:  #1565A0;
+
+      --cyan:       #4FC3D7;
+
+      --bg:         #E8F4FD;
+
+      --bg-dark:    #C8E8F8;
+
+      --card:       #FFFFFF;
+
+      --text:       #0D3355;
+
+      --text-soft:  #3A6080;
+
+      --shadow:     0 4px 24px rgba(30,136,200,0.13);
+
+    }
+
+
+
+    html { scroll-behavior: smooth; }
+
+
+
+    body {
+
+      font-family: 'Poppins', sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+    }
+
+
+
+    /* ── TOP BAR ── */
+
+    .topbar {
+
+      background: var(--blue-dark);
+
+      color: #fff;
+
+      text-align: center;
+
+      font-size: 0.78rem;
+
+      padding: 8px 16px;
+
+    }
+
+
+
+    .topbar a {
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      background: rgba(255,255,255,0.15);
+
+      padding: 3px 14px;
+
+      border-radius: 20px;
+
+      margin-left: 8px;
+
+    }
+
+
+
+    .topbar a:hover { background: rgba(255,255,255,0.28); }
+
+
+
+    /* ── HEADER ── */
+
+    header {
+
+      background: var(--card);
+
+      border-bottom: 3px solid var(--blue);
+
+      padding: 28px 40px;
+
+      text-align: center;
+
+    }
+
+
+
+    .trade-icon-big {
+
+      font-size: 3rem;
+
+      margin-bottom: 8px;
+
+    }
+
+
+
+    header h1 {
+
+      font-family: 'Merriweather', serif;
+
+      font-size: 1.7rem;
+
+      font-weight: 700;
+
+      color: var(--blue-dark);
+
+      margin-bottom: 6px;
+
+    }
+
+
+
+    header .sub {
+
+      font-size: 0.88rem;
+
+      color: var(--text-soft);
+
+    }
+
+
+
+    /* ── NAV ── */
+
+    nav {
+
+      background: var(--blue);
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      position: sticky; top: 0; z-index: 100;
+
+    }
+
+
+
+    nav a {
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-size: 0.85rem;
+
+      font-weight: 600;
+
+      padding: 13px 20px;
+
+      transition: background 0.2s;
+
+    }
+
+
+
+    nav a:hover { background: var(--cyan); }
+    nav a.active { background: var(--cyan); }
+
+
+
+    /* ── HERO ── */
+
+    .hero {
+
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--cyan) 100%);
+
+      color: #fff;
+
+      padding: 60px 40px;
+
+      text-align: center;
+
+    }
+
+
+
+    .hero-tag {
+
+      display: inline-block;
+
+      background: rgba(255,255,255,0.18);
+
+      color: #fff;
+
+      font-size: 0.75rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      padding: 4px 16px;
+
+      border-radius: 20px;
+
+      margin-bottom: 16px;
+
+    }
+
+
+
+    .hero h2 {
+
+      font-family: 'Merriweather', serif;
+
+      font-size: 2rem;
+
+      font-weight: 700;
+
+      margin-bottom: 12px;
+
+    }
+
+
+
+    .hero p {
+
+      font-size: 0.95rem;
+
+      opacity: 0.92;
+
+      max-width: 600px;
+
+      margin: 0 auto;
+
+      line-height: 1.7;
+
+    }
+
+
+
+    /* ── QUICK INFO ── */
+
+    .info-bar {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 0;
+
+      background: var(--blue-dark);
+
+    }
+
+
+
+    .info-item {
+
+      padding: 18px 32px;
+
+      text-align: center;
+
+      color: #fff;
+
+      border-right: 1px solid rgba(255,255,255,0.2);
+
+    }
+
+
+
+    .info-item:last-child { border-right: none; }
+
+
+
+    .info-item .label {
+
+      font-size: 0.72rem;
+
+      letter-spacing: 1px;
+
+      opacity: 0.75;
+
+      text-transform: uppercase;
+
+      margin-bottom: 4px;
+
+    }
+
+
+
+    .info-item .value {
+
+      font-size: 1.15rem;
+
+      font-weight: 800;
+
+    }
+
+
+
+    /* ── SECTION ── */
+
+    section { padding: 56px 40px; max-width: 1000px; margin: auto; }
+
+
+
+    .section-label {
+
+      font-size: 0.72rem;
+
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: var(--cyan);
+
+      margin-bottom: 8px;
+
+    }
+
+
+
+    .section-title {
+
+      font-family: 'Merriweather', serif;
+
+      font-size: 1.6rem;
+
+      font-weight: 700;
+
+      color: var(--blue-dark);
+
+      margin-bottom: 12px;
+
+    }
+
+
+
+    .section-line {
+
+      width: 48px; height: 4px;
+
+      background: var(--cyan);
+
+      border-radius: 2px;
+
+      margin-bottom: 28px;
+
+    }
+
+
+
+    /* ── SYLLABUS ── */
+
+    .syllabus-group {
+
+      background: var(--card);
+
+      border-radius: 12px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 16px;
+
+      overflow: hidden;
+
+      border-left: 4px solid var(--blue);
+
+    }
+
+
+
+    .syllabus-group summary {
+
+      padding: 16px 22px;
+
+      font-weight: 700;
+
+      color: var(--blue-dark);
+
+      cursor: pointer;
+
+      list-style: none;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      font-size: 0.95rem;
+
+    }
+
+
+
+    .syllabus-group summary::-webkit-details-marker { display: none; }
+
+
+
+    .syllabus-group summary::after {
+
+      content: '+';
+
+      font-size: 1.3rem;
+
+      color: var(--cyan);
+
+      font-weight: 800;
+
+    }
+
+
+
+    .syllabus-group[open] summary::after { content: '−'; }
+
+
+
+    .syllabus-content {
+
+      padding: 0 22px 18px;
+
+    }
+
+
+
+    .syllabus-content ul {
+
+      list-style: none;
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+      gap: 8px;
+
+    }
+
+
+
+    .syllabus-content li {
+
+      font-size: 0.85rem;
+
+      color: var(--text-soft);
+
+      padding: 6px 0 6px 22px;
+
+      position: relative;
+
+    }
+
+
+
+    .syllabus-content li::before {
+
+      content: '▸';
+
+      position: absolute;
+
+      left: 0;
+
+      color: var(--cyan);
+
+      font-weight: 800;
+
+    }
+
+
+
+    .sub-heading {
+
+      font-size: 0.8rem;
+
+      font-weight: 700;
+
+      color: var(--blue);
+
+      margin: 14px 0 4px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+
+    }
+
+
+
+    /* ── CAREER ── */
+
+    .career-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+      gap: 16px;
+
+    }
+
+
+
+    .career-card {
+
+      background: var(--card);
+
+      border-radius: 10px;
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+
+      border-top: 4px solid var(--cyan);
+
+    }
+
+
+
+    .career-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+
+
+    .career-card h4 {
+
+      font-size: 0.9rem;
+
+      font-weight: 700;
+
+      color: var(--blue-dark);
+
+    }
+
+
+
+    /* ── GALLERY ── */
+
+    #gallery { background: var(--bg-dark); }
+
+
+
+    .gallery-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+      gap: 16px;
+
+    }
+
+
+
+    .gallery-item {
+
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      aspect-ratio: 4/3;
+
+      background: var(--card);
+
+      box-shadow: var(--shadow);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+
+    .gallery-item img {
+
+      width: 100%; height: 100%; object-fit: cover;
+
+      display: block;
+
+    }
+
+
+
+    .gallery-placeholder {
+
+      text-align: center;
+
+      color: var(--blue);
+
+      padding: 20px;
+
+    }
+
+
+
+    .gallery-placeholder .ic { font-size: 2.5rem; margin-bottom: 8px; }
+
+    .gallery-placeholder .lbl { font-size: 0.8rem; font-weight: 600; color: var(--text-soft); }
+
+
+
+    /* ── ADMISSION ── */
+
+    .admission-box {
+
+      background: var(--blue-dark);
+
+      color: #fff;
+
+      border-radius: 16px;
+
+      padding: 36px 32px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 32px;
+
+      align-items: center;
+
+    }
+
+
+
+    .admission-box h3 {
+
+      font-family: 'Merriweather', serif;
+
+      font-size: 1.4rem;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    .admission-box p {
+
+      font-size: 0.85rem;
+
+      opacity: 0.85;
+
+      line-height: 1.7;
+
+    }
+
+
+
+    .btn-primary {
+
+      display: inline-block;
+
+      background: var(--cyan);
+
+      color: #fff;
+
+      padding: 12px 26px;
+
+      border-radius: 6px;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      font-size: 0.88rem;
+
+      margin-top: 14px;
+
+      transition: transform 0.15s;
+
+    }
+
+
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+
+
+    .admission-steps {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+
+    }
+
+
+
+    .step {
+
+      display: flex;
+
+      gap: 12px;
+
+      align-items: flex-start;
+
+    }
+
+
+
+    .step-num {
+
+      width: 28px; height: 28px;
+
+      border-radius: 50%;
+
+      background: var(--cyan);
+
+      display: flex; align-items: center; justify-content: center;
+
+      font-weight: 800;
+
+      font-size: 0.8rem;
+
+      flex-shrink: 0;
+
+    }
+
+
+
+    .step-text {
+
+      font-size: 0.82rem;
+
+      opacity: 0.9;
+
+      line-height: 1.5;
+
+      padding-top: 4px;
+
+    }
+
+
+
+    /* ── FOOTER ── */
+
+    footer {
+
+      background: #C2DCF0;
+
+      color: rgba(255,255,255,0.7);
+
+      text-align: center;
+
+      padding: 24px 20px;
+
+      font-size: 0.8rem;
+
+      line-height: 1.8;
+
+    }
+
+
+
+    footer strong { color: var(--cyan); }
+
+    footer a { color: var(--cyan); text-decoration: none; }
+
+
+
+    /* ── RESPONSIVE ── */
+
+    @media (max-width: 768px) {
+
+      header { padding: 20px; }
+
+      .hero { padding: 40px 20px; }
+
+      .hero h2 { font-size: 1.5rem; }
+
+      section { padding: 40px 20px; }
+
+      .admission-box { grid-template-columns: 1fr; }
+
+      .info-item { padding: 14px 20px; }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+  📘 Trade Page: COPA &nbsp;|&nbsp; Government ITI Karnailganj, Gonda
+
+  <a href="index.html">← Back to Home</a>
+
+</div>
+
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="trade-icon-big">💻</div>
+
+  <h1>COPA — Computer Operator &amp; Programming Assistant</h1>
+
+  <div class="sub">Government Industrial Training Institute, Karnailganj, Gonda</div>
+
+</header>
+
+
+
+<!-- NAV -->
+
+<nav>
+
+  <a href="index.html">🏠 Home</a>
+
+  <a href="#overview">Overview</a>
+
+  <a href="#syllabus">Syllabus</a>
+
+  <a href="#career">Career</a>
+
+  <a href="#gallery">Gallery</a>
+
+  <a href="#admission">Admission</a>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="overview" style="max-width:100%; padding:60px 40px;">
+
+  <span class="hero-tag">NCVT Certified Course</span>
+
+  <h2>Build Your Career in IT &amp; Computer Applications</h2>
+
+  <p>COPA trains students in computer fundamentals, office applications, programming basics, networking and employability skills — preparing them for jobs in offices, IT support and self-employment.</p>
+
+</section>
+
+
+
+<!-- QUICK INFO -->
+
+<div class="info-bar">
+
+  <div class="info-item">
+
+    <div class="label">Eligibility</div>
+
+    <div class="value">10th Pass</div>
+
+  </div>
+
+  <div class="info-item">
+
+    <div class="label">Duration</div>
+
+    <div class="value">1 Year</div>
+
+  </div>
+
+  <div class="info-item">
+
+    <div class="label">Fees</div>
+
+    <div class="value">₹780 / Year</div>
+
+  </div>
+
+  <div class="info-item">
+
+    <div class="label">Certification</div>
+
+    <div class="value">NCVT / SCVT</div>
+
+  </div>
+
+</div>
+
+
+
+<!-- SYLLABUS -->
+
+<section id="syllabus">
+
+  <div class="section-label">Course Curriculum</div>
+
+  <h2 class="section-title">Syllabus</h2>
+
+  <div class="section-line"></div>
+
+
+
+  <details class="syllabus-group" open>
+
+    <summary>1. Trade Theory &amp; Practical</summary>
+
+    <div class="syllabus-content">
+
+      <ul>
+
+        <li>Introduction to Computers &amp; Windows</li>
+
+        <li>Hardware Basics, BIOS, OS Installation</li>
+
+        <li>DOS &amp; Linux Commands</li>
+
+        <li>MS Word</li>
+
+        <li>MS Excel</li>
+
+        <li>OpenOffice</li>
+
+        <li>PowerPoint Presentation</li>
+
+        <li>Database Management System (DBMS)</li>
+
+        <li>Computer Networking</li>
+
+        <li>Internet Concepts</li>
+
+        <li>HTML &amp; CSS</li>
+
+        <li>JavaScript</li>
+
+        <li>VBA (Visual Basic for Applications)</li>
+
+        <li>Smart Accounting</li>
+
+        <li>Tally ERP / GST Basics</li>
+
+      </ul>
+
+    </div>
+
+  </details>
+
+
+
+  <details class="syllabus-group">
+
+    <summary>2. Employability Skills</summary>
+
+    <div class="syllabus-content">
+
+
+
+      <div class="sub-heading">IT Literacy</div>
+
+      <ul>
+
+        <li>Basics of Computer</li>
+
+        <li>Operating System</li>
+
+        <li>Word Processing &amp; Worksheet</li>
+
+        <li>Internet &amp; Networking</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">English Literacy</div>
+
+      <ul>
+
+        <li>Pronunciation</li>
+
+        <li>Functional Grammar</li>
+
+        <li>Reading</li>
+
+        <li>Writing</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Communication Skills</div>
+
+      <ul>
+
+        <li>Spoken English</li>
+
+        <li>Listening Skills</li>
+
+        <li>Motivational Training</li>
+
+        <li>Facing Interviews</li>
+
+        <li>Behavioral Skills</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Entrepreneurship Skills</div>
+
+      <ul>
+
+        <li>Entrepreneurship Concepts</li>
+
+        <li>Project Preparation</li>
+
+        <li>Marketing Analysis</li>
+
+        <li>Investment Procurement</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Occupational Safety &amp; Environment</div>
+
+      <ul>
+
+        <li>Safety &amp; Health</li>
+
+        <li>First Aid</li>
+
+        <li>Pollution &amp; Environment</li>
+
+        <li>Energy Conservation</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Labour Welfare Legislation</div>
+
+      <ul>
+
+        <li>Welfare Acts</li>
+
+        <li>ESI, PF, Apprenticeship Act</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Quality Tools</div>
+
+      <ul>
+
+        <li>Quality Management</li>
+
+        <li>Housekeeping</li>
+
+        <li>ISO 9000 Basics</li>
+
+      </ul>
+
+
+
+      <div class="sub-heading">Productivity &amp; Personal Finance</div>
+
+      <ul>
+
+        <li>Productivity Concepts</li>
+
+        <li>Banking</li>
+
+        <li>ATM</li>
+
+        <li>KYC</li>
+
+        <li>Personal Finance &amp; Insurance</li>
+
+      </ul>
+
+
+
+    </div>
+
+  </details>
+
+</section>
+
+
+
+<!-- CAREER -->
+
+<section id="career">
+
+  <div class="section-label">After Completion</div>
+
+  <h2 class="section-title">Career Options</h2>
+
+  <div class="section-line"></div>
+
+  <div class="career-grid">
+
+    <div class="career-card">
+
+      <div class="icon">🖥️</div>
+
+      <h4>Computer Operator</h4>
+
+    </div>
+
+    <div class="career-card">
+
+      <div class="icon">⌨️</div>
+
+      <h4>Data Entry Operator</h4>
+
+    </div>
+
+    <div class="career-card">
+
+      <div class="icon">📁</div>
+
+      <h4>Office Assistant</h4>
+
+    </div>
+
+    <div class="career-card">
+
+      <div class="icon">🧑‍🏫</div>
+
+      <h4>Computer Lab Assistant</h4>
+
+    </div>
+
+    <div class="career-card">
+
+      <div class="icon">🎧</div>
+
+      <h4>Customer Support Executive</h4>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+  <div class="section-label">Photo Gallery</div>
+
+  <h2 class="section-title">COPA Lab &amp; Activities</h2>
+
+  <div class="section-line"></div>
+
+  <div class="gallery-grid">
+
+
+    <div class="gallery-item">
+  <img src="https://i.imghippo.com/files/ckx9013ek.png" alt="Computer Lab Photo 1"/>
+</div>
+
+      <div class="gallery-placeholder">
+
+
+
+        
+
+      </div>
+
+    </div>
+
+    <div class="gallery-item">
+<img src="https://i.imghippo.com/files/DO6695Xm.png" alt="Computer Lab Photo 2"/>
+</div>
+      <div class="gallery-placeholder">
+
+       
+
+        
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ADMISSION -->
+
+<section id="admission">
+
+  <div class="section-label">Join Us</div>
+
+  <h2 class="section-title">Admission Process</h2>
+
+  <div class="section-line"></div>
+
+  <div class="admission-box">
+
+    <div>
+
+      <h3>Admission 2026-27</h3>
+
+      <p>Admissions are conducted through the UP ITI Online Admission Portal (SCVT UP). Seats are limited and filled on merit basis. Apply before the last date to secure your seat in COPA.</p>
+
+      <a href="https://www.scvtup.in/en" target="_blank" class="btn-primary">Apply Online at scvtup.in →</a>
+
+    </div>
+
+    <div class="admission-steps">
+
+      <div class="step">
+
+        <div class="step-num">1</div>
+
+        <div class="step-text">Visit <strong>scvtup.in</strong> — official UP ITI admission portal</div>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-num">2</div>
+
+        <div class="step-text">Register with Aadhaar, fill personal &amp; academic details</div>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-num">3</div>
+
+        <div class="step-text">Select ITI Karnailganj, Gonda and choose COPA as preferred trade</div>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-num">4</div>
+
+        <div class="step-text">Pay application fee and submit the form online</div>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-num">5</div>
+
+        <div class="step-text">Check merit list and report for document verification</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <strong>COPA — Government ITI Karnailganj, Gonda</strong><br/>
+
+  <a href="index.html">← Back to Home Page</a><br/><br/>
+
+  <span style="opacity:0.55;">© 2026 Govt. ITI Karnailganj, Gonda. Website developed for educational/project purpose.</span>
+
+</footer>
+
+
+
+<script>
+  const sections = ['overview','syllabus','career','gallery','admission'];
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+</body>
+
+</html>

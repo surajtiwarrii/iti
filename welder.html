@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welder — Government ITI Karnailganj, Gonda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --main:       #7AAA30;
+      --main-dark:  #5A8018;
+      --accent:     #A8D840;
+      --bg:         #F5FAE8;
+      --bg-dark:    #E8F5C8;
+      --card:       #FFFFFF;
+      --text:       #263A00;
+      --text-soft:  #506820;
+      --shadow:     0 4px 24px rgba(122,170,48,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); }
+
+    .topbar {
+      background: var(--main-dark);
+      color: #fff;
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 8px 16px;
+    }
+    .topbar a {
+      color: #fff; text-decoration: none; font-weight: 700;
+      background: rgba(255,255,255,0.15); padding: 3px 14px;
+      border-radius: 20px; margin-left: 8px;
+    }
+    .topbar a:hover { background: rgba(255,255,255,0.28); }
+
+    header {
+      background: var(--card);
+      border-bottom: 3px solid var(--main);
+      padding: 28px 40px;
+      text-align: center;
+    }
+    .trade-icon-big { font-size: 3rem; margin-bottom: 8px; }
+    header h1 { font-family: 'Merriweather', serif; font-size: 1.7rem; font-weight: 700; color: var(--main-dark); margin-bottom: 6px; }
+    header .sub { font-size: 0.88rem; color: var(--text-soft); }
+
+    nav {
+      background: var(--main);
+      display: flex; justify-content: center; flex-wrap: wrap;
+      position: sticky; top: 0; z-index: 100;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 0.85rem;
+      font-weight: 600; padding: 13px 20px; transition: background 0.2s; cursor: pointer;
+    }
+    nav a:hover, nav a.active { background: var(--accent); }
+
+    .hero {
+      background: linear-gradient(135deg, var(--main-dark) 0%, var(--main) 60%, var(--accent) 100%);
+      color: #fff; padding: 60px 40px; text-align: center;
+      max-width: 100%;
+    }
+    .hero-tag {
+      display: inline-block; background: rgba(255,255,255,0.18); color: #fff;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 16px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h2 { font-family: 'Merriweather', serif; font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+    .hero p { font-size: 0.95rem; opacity: 0.92; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    .info-bar { display: flex; justify-content: center; flex-wrap: wrap; background: var(--main-dark); }
+    .info-item { padding: 18px 32px; text-align: center; color: #fff; border-right: 1px solid rgba(255,255,255,0.2); }
+    .info-item:last-child { border-right: none; }
+    .info-item .label { font-size: 0.72rem; letter-spacing: 1px; opacity: 0.75; text-transform: uppercase; margin-bottom: 4px; }
+    .info-item .value { font-size: 1.15rem; font-weight: 800; }
+
+    section { padding: 56px 40px; max-width: 1000px; margin: auto; }
+    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .section-title { font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 700; color: var(--main-dark); margin-bottom: 12px; }
+    .section-line { width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 28px; }
+
+    .syllabus-group { background: var(--card); border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 16px; overflow: hidden; border-left: 4px solid var(--main); }
+    .syllabus-group summary { padding: 16px 22px; font-weight: 700; color: var(--main-dark); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
+    .syllabus-group summary::-webkit-details-marker { display: none; }
+    .syllabus-group summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); font-weight: 800; }
+    .syllabus-group[open] summary::after { content: '−'; }
+    .syllabus-content { padding: 0 22px 18px; }
+    .syllabus-content ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+    .syllabus-content li { font-size: 0.85rem; color: var(--text-soft); padding: 6px 0 6px 22px; position: relative; }
+    .syllabus-content li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+    .sub-heading { font-size: 0.8rem; font-weight: 700; color: var(--main); margin: 14px 0 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .career-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .career-card { background: var(--card); border-radius: 10px; padding: 20px; box-shadow: var(--shadow); text-align: center; border-top: 4px solid var(--accent); }
+    .career-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .career-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--main-dark); }
+
+    #gallery { background: var(--bg-dark); max-width: 100%; padding: 56px 40px; }
+    .gallery-inner { max-width: 1000px; margin: auto; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .gallery-item { border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; background: var(--card); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--text-soft); font-size: 0.85rem; }
+    .gallery-item .ic { font-size: 2rem; }
+
+    .admission-box { background: var(--main-dark); color: #fff; border-radius: 16px; padding: 40px 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+    .admission-box h3 { font-family: 'Merriweather', serif; font-size: 1.5rem; margin-bottom: 12px; }
+    .admission-box p { font-size: 0.88rem; opacity: 0.85; line-height: 1.75; }
+    .admission-steps { display: flex; flex-direction: column; gap: 14px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem; flex-shrink: 0; color: #fff; }
+    .step-text { font-size: 0.82rem; opacity: 0.9; line-height: 1.5; padding-top: 4px; }
+    .btn-trade { background: var(--accent); color: #fff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-block; margin-top: 16px; }
+
+    footer { background: #D8EDA0; color: #304010; text-align: center; padding: 24px 20px; font-size: 0.8rem; line-height: 1.8; }
+    footer strong { color: var(--accent); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; }
+      .hero { padding: 40px 20px; }
+      .hero h2 { font-size: 1.5rem; }
+      section { padding: 40px 20px; }
+      #gallery { padding: 40px 20px; }
+      .admission-box { grid-template-columns: 1fr; }
+      .info-item { padding: 14px 20px; }
+      nav a { padding: 10px 14px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  🔥 Trade Page: Welder &nbsp;|&nbsp; Government ITI Karnailganj, Gonda
+  <a href="index.html">← Back to Home</a>
+</div>
+
+<header>
+  <div class="trade-icon-big">🔥</div>
+  <h1>Welder — Welder</h1>
+  <div class="sub">Government Industrial Training Institute, Karnailganj, Gonda</div>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="#overview">Overview</a>
+  <a href="#syllabus">Syllabus</a>
+  <a href="#career">Career</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#admission">Admission</a>
+</nav>
+
+<section class="hero" id="overview">
+  <span class="hero-tag">NCVT Certified Course</span>
+  <h2>Build Your Career in Welding &amp; Metal Fabrication</h2>
+  <p>Welder trade trains students in gas welding, arc welding, TIG/MIG welding and metal fabrication techniques — preparing them for jobs in fabrication units, construction, shipbuilding, and pipeline industries.</p>
+</section>
+
+<div class="info-bar">
+  <div class="info-item"><div class="label">Eligibility</div><div class="value">8th Pass</div></div>
+  <div class="info-item"><div class="label">Duration</div><div class="value">1 Year</div></div>
+  <div class="info-item"><div class="label">Fees</div><div class="value">₹780 / Year</div></div>
+  <div class="info-item"><div class="label">Certification</div><div class="value">NCVT / SCVT</div></div>
+</div>
+
+<section id="syllabus">
+  <div class="section-label">Course Curriculum</div>
+  <h2 class="section-title">Syllabus</h2>
+  <div class="section-line"></div>
+
+  <details class="syllabus-group" open>
+    <summary>1. Basic Workshop Practice (Semester 1)</summary>
+    <div class="syllabus-content">
+      <ul>
+        <li>Introduction to Welding Trade &amp; Safety</li>
+        <li>Hand Tools &amp; Their Uses</li>
+        <li>Marking, Measuring &amp; Cutting Tools</li>
+        <li>Sheet Metal Operations</li>
+        <li>Basic Fitting Practice</li>
+        <li>Personal Protective Equipment (PPE)</li>
+        <li>Fire Safety in Welding Shop</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="syllabus-group">
+    <summary>2. Gas Welding &amp; Cutting (Semester 1 &amp; 2)</summary>
+    <div class="syllabus-content">
+      <ul>
+        <li>Oxy-Acetylene Gas Welding</li>
+        <li>Gas Cutting Process &amp; Equipment</li>
+        <li>Brazing &amp; Soldering</li>
+        <li>Flame Setting &amp; Adjustment</li>
+        <li>Welding of Mild Steel Plates</li>
+        <li>Edge Preparation Techniques</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="syllabus-group">
+    <summary>3. Arc Welding (Semester 2 &amp; 3)</summary>
+    <div class="syllabus-content">
+      <ul>
+        <li>Shielded Metal Arc Welding (SMAW)</li>
+        <li>Electrode Selection &amp; Classification</li>
+        <li>Welding Positions (1G, 2G, 3G, 4G)</li>
+        <li>Butt &amp; Fillet Joint Welding</li>
+        <li>Welding Defects, Causes &amp; Remedies</li>
+        <li>Welding of Pipes &amp; Plates</li>
+        <li>Arc Welding Machine Maintenance</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="syllabus-group">
+    <summary>4. TIG &amp; MIG/MAG Welding (Semester 3 &amp; 4)</summary>
+    <div class="syllabus-content">
+      <ul>
+        <li>TIG (GTAW) Welding Process</li>
+        <li>MIG/MAG (GMAW) Welding Process</li>
+        <li>Welding of Stainless Steel &amp; Aluminium</li>
+        <li>Welding of Non-Ferrous Metals</li>
+        <li>Welding Symbols &amp; Drawing Interpretation</li>
+        <li>Destructive &amp; Non-Destructive Testing (NDT) Basics</li>
+        <li>Submerged Arc Welding (SAW) Overview</li>
+        <li>CNC / Robotic Welding Awareness</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="syllabus-group">
+    <summary>5. Metal Fabrication &amp; Quality (All Semesters)</summary>
+    <div class="syllabus-content">
+      <ul>
+        <li>Sheet Metal Fabrication Jobs</li>
+        <li>Pipe Fabrication &amp; Joining</li>
+        <li>Structural Fabrication Basics</li>
+        <li>Welding Inspection &amp; Quality Standards</li>
+        <li>Pre-heating &amp; Post-weld Heat Treatment</li>
+        <li>Costing &amp; Estimation of Welding Jobs</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="syllabus-group">
+    <summary>5. Employability Skills (All Semesters)</summary>
+    <div class="syllabus-content">
+      <div class="sub-heading">IT Literacy</div>
+      <ul><li>Basics of Computer</li><li>Internet Usage</li><li>MS Office Basics</li></ul>
+      <div class="sub-heading">Communication Skills</div>
+      <ul><li>Spoken English</li><li>Interview Preparation</li><li>Behavioral Skills</li></ul>
+      <div class="sub-heading">Occupational Safety</div>
+      <ul><li>Workshop Safety Rules</li><li>Fire Safety &amp; First Aid</li><li>PPE Usage</li><li>Housekeeping (5S)</li></ul>
+      <div class="sub-heading">Entrepreneurship</div>
+      <ul><li>Business Setup Basics</li><li>Customer Service</li><li>Self-Employment Planning</li></ul>
+      <div class="sub-heading">Quality &amp; Productivity</div>
+      <ul><li>Quality Control Concepts</li><li>5S Housekeeping</li><li>ISO Basics</li></ul>
+    </div>
+  </details>
+</section>
+
+<section id="career">
+  <div class="section-label">After Completion</div>
+  <h2 class="section-title">Career Options</h2>
+  <div class="section-line"></div>
+  <div class="career-grid">
+    <div class="career-card">
+      <div class="icon">🔥</div>
+      <h4>Welder (Arc/Gas/TIG/MIG)</h4>
+    </div>
+    <div class="career-card">
+      <div class="icon">🏗️</div>
+      <h4>Fabrication Industry Worker</h4>
+    </div>
+    <div class="career-card">
+      <div class="icon">🏭</div>
+      <h4>Pipeline &amp; Structural Welder</h4>
+    </div>
+    <div class="career-card">
+      <div class="icon">🚢</div>
+      <h4>Shipbuilding Industry</h4>
+    </div>
+    <div class="career-card">
+      <div class="icon">🏪</div>
+      <h4>Own Fabrication Workshop</h4>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="section-label">Photo Gallery</div>
+    <h2 class="section-title">Welder Workshop &amp; Activities</h2>
+    <div class="section-line"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">  <img src="https://i.imghippo.com/files/ckx9013ek.png" alt="Workshop Photo 1"</div></div>
+      <div class="gallery-item"><div class="ic">⚙️</div><div>Practical Training Session</div></div>
+      <div class="gallery-item"><div class="ic">📚</div><div>Theory Class</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="admission">
+  <div class="section-label">Join Us</div>
+  <h2 class="section-title">Admission Process</h2>
+  <div class="section-line"></div>
+  <div class="admission-box">
+    <div>
+      <h3>Admission 2026-27</h3>
+      <p>Admissions are conducted through the UP ITI Online Admission Portal (SCVT UP). Seats are limited and filled on merit basis. Apply before the last date to secure your seat in Welder.</p>
+      <a href="https://www.scvtup.in/en" target="_blank" class="btn-trade">Apply Online at scvtup.in →</a>
+    </div>
+    <div class="admission-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Visit <strong>scvtup.in</strong> — official UP ITI admission portal</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Register with Aadhaar, fill personal &amp; academic details</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Select ITI Karnailganj, Gonda and choose Welder as preferred trade</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Pay application fee and submit the form online</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Check merit list and report for document verification</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Welder — Government ITI Karnailganj, Gonda</strong><br/>
+  <a href="index.html">← Back to Home Page</a><br/><br/>
+  <span style="opacity:0.55;">© 2026 Govt. ITI Karnailganj, Gonda. Website developed for educational/project purpose.</span>
+</footer>
+
+<script>
+  const sections = ['overview','syllabus','career','gallery','admission'];
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
